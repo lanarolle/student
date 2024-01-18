@@ -1,0 +1,36 @@
+<div class="registration-form">
+    <h2 class="main">Student Registration Form</h2>
+</div>
+<body>
+<form class="registration-form"  [formGroup]="registerform">
+    <label for="StuName"> Name:</label>
+    <input type="text" id="StuName" formControlName="StuName" name="StuName" required>
+
+
+    <label for="StuEmail">Email:</label>
+    <input type="email" id="StuEmail" formControlName="StuEmail" name="StuEmail" required>
+
+    <label for="StuMobNum">Mobile Number:</label>
+    <input type="number" id="StuMobNum" formControlName="StuMobNum" name="StuMobNum" required>
+
+    <label for="DOB">Date of Birth:</label>
+    <input type="date" id="DOB" formControlName="DOB" name="DOB" required>
+
+    <label for="StuAddress">Address:</label>
+    <input type="text" id="StuAddress" formControlName="StuAddress" name="StuAddress" required>
+
+    <label for="Password">Password:</label>
+    <input type="password" id="Password" formControlName="Password" name="Password" required>
+
+    <label for="rpwd">Repeat Password:</label>
+    <input type="rpwd" id="rpwd" formControlName="rpwd" name="rpwd" required>
+
+    <!-- Add other form fields as needed -->
+
+    <!-- <button type="submit">Submit</button> -->
+    <div class="btn">
+        <button type="submit" mat-raised-button color="primary">Register</button>
+        <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
+    </div>
+</form>
+</body>

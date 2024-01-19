@@ -20,7 +20,11 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
-        "build": {
+        
+        "build": {"styles": [
+          "src/styles.css",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+       ],       
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/student",

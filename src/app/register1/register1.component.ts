@@ -77,6 +77,7 @@ import * as bcrypt from 'bcryptjs';
 
 
   registerSubmit() {
+    
     if (this.Password.value == this.rpwd.value) {
       this.RepeatPass = "none";
 

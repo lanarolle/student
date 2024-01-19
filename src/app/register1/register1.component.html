@@ -1,36 +1,65 @@
 <div class="registration-form">
     <h2 class="main">Student Registration Form</h2>
 </div>
+
 <body>
-<form class="registration-form"  [formGroup]="registerform">
-    <label for="StuName"> Name:</label>
-    <input type="text" id="StuName" formControlName="StuName" name="StuName" required>
-
-
-    <label for="StuEmail">Email:</label>
-    <input type="email" id="StuEmail" formControlName="StuEmail" name="StuEmail" required>
-
-    <label for="StuMobNum">Mobile Number:</label>
-    <input type="number" id="StuMobNum" formControlName="StuMobNum" name="StuMobNum" required>
-
-    <label for="DOB">Date of Birth:</label>
-    <input type="date" id="DOB" formControlName="DOB" name="DOB" required>
-
-    <label for="StuAddress">Address:</label>
-    <input type="text" id="StuAddress" formControlName="StuAddress" name="StuAddress" required>
-
-    <label for="Password">Password:</label>
-    <input type="password" id="Password" formControlName="Password" name="Password" required>
-
-    <label for="rpwd">Repeat Password:</label>
-    <input type="rpwd" id="rpwd" formControlName="rpwd" name="rpwd" required>
-
-    <!-- Add other form fields as needed -->
-
-    <!-- <button type="submit">Submit</button> -->
-    <div class="btn">
-        <button type="submit" mat-raised-button color="primary">Register</button>
-        <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
+    <form class="registration-form" [formGroup]="registerform" (ngSubmit)="registerSubmit()">
+        <!-- name -->
+        <label for="StuName"> Name:</label>
+        <input type="text" id="StuName" formControlName="StuName" name="StuName" required>
+        <div class="form-text text-danger" *ngIf="StuName.errors?.['required'] && (StuName.touched || StuName.dirty)">
+            Student Name is Required
+        </div>
+        <div class="form-text text-danger" *ngIf="StuName.errors?.['pattern'] && (StuName.touched || StuName.dirty)">
+            Student Name only alphabets
+        </div>
+        <!-- email -->
+        <label for="StuEmail">Email:</label>
+        <input type="email" id="StuEmail" formControlName="StuEmail" name="StuEmail" required>
+        <div class="form-text text-danger"
+            *ngIf="StuEmail.errors?.['required'] && (StuEmail.touched || StuEmail.dirty)">
+            Email is Required
+        </div>
+        <div class="form-text text-danger" *ngIf="StuEmail.errors?.['email'] && (StuEmail.touched || StuEmail.dirty)">
+            Invalid Email
+        </div>
+        <!-- mobilenumber -->
+        <label for="StuMobNum">Mobile Number:</label>
+        <input type="text" id="StuMobNum" formControlName="StuMobNum" name="StuMobNum" required>
+        <div class="form-text text-danger"
+        *ngIf="StuMobNum.errors?.['required'] && (StuMobNum.touched || StuMobNum.dirty)">
+        Mobile number is Required
     </div>
-</form>
+    <div class="form-text text-danger" *ngIf="StuMobNum.errors?.['email'] && (StuMobNum.touched || StuMobNum.dirty)">
+        Invalid mobile number should contain only numbers
+    </div>
+    <div class="form-text text-danger" *ngIf="StuMobNum.errors?.['minlength'] && (StuMobNum.touched || StuMobNum.dirty)">
+         mobile number is too short
+    </div>
+    <div class="form-text text-danger" *ngIf="StuMobNum.errors?.['maxlength'] && (StuMobNum.touched || StuMobNum.dirty)">
+         mobile number is too long
+    </div>
+
+    <!-- date of birth -->
+    
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" id="DOB" formControlName="DOB" name="DOB" required>
+
+        <label for="StuAddress">Address:</label>
+        <input type="text" id="StuAddress" formControlName="StuAddress" name="StuAddress" required>
+
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" formControlName="Password" name="Password" required>
+
+        <label for="rpwd">Repeat Password:</label>
+        <input type="rpwd" id="rpwd" formControlName="rpwd" name="rpwd" required>
+
+        <!-- Add other form fields as needed -->
+
+        <!-- <button type="submit">Submit</button> -->
+        <div class="btn">
+            <button type="submit" mat-raised-button color="primary">Register</button>
+            <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
+        </div>
+    </form>
 </body>

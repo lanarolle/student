@@ -8,7 +8,7 @@ import { StudentDto } from '../Dto/StudentDto';
 })
 export class StudentService {
 
-  url="https://localhost:7073/api/" +"Student/";
+  url="https://localhost:7073/api/Student";
 
   constructor(private http:HttpClient) { }
 
@@ -20,9 +20,19 @@ export class StudentService {
   //   return this.http.post<any>(this.url, filters);
   // }
   RegisterStudent(Student: Array<string>){
+    console.log (Student);
     return this.http.post(this.url,{
+      StuName: Student[0],
+      StuEmail: Student[1],
+      StuMobNum: Student[2],
+      DOB: Student[3],
+      StuAddress: Student[4],
+      Password: Student[5]
+      
 
-    })
+    }, {
+      responseType:'text',
+    });
   }
 
 }

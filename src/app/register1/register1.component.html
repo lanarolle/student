@@ -3,7 +3,11 @@
 </div>
 
 <body>
-    <form class="registration-form" [formGroup]="registerform" (ngSubmit)="registerSubmit()">
+    <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'">
+        {{displayMsg}}
+    </p>
+
+    <form #form="ngForm" class="registration-form" [formGroup]="registerform" (ngSubmit)="registerSubmit()">
         <!-- name -->
         <label for="StuName"> Name:</label>
         <input type="text" id="StuName" formControlName="StuName" name="StuName" required>
@@ -22,43 +26,51 @@
         </div>
         <div class="form-text text-danger" *ngIf="StuEmail.errors?.['email'] && (StuEmail.touched || StuEmail.dirty)">
             Invalid Email
-        </div>
+        </div>              
         <!-- mobilenumber -->
         <label for="StuMobNum">Mobile Number:</label>
         <input type="text" id="StuMobNum" formControlName="StuMobNum" name="StuMobNum" required>
         <div class="form-text text-danger"
-        *ngIf="StuMobNum.errors?.['required'] && (StuMobNum.touched || StuMobNum.dirty)">
-        Mobile number is Required
-    </div>
-    <div class="form-text text-danger" *ngIf="StuMobNum.errors?.['email'] && (StuMobNum.touched || StuMobNum.dirty)">
-        Invalid mobile number should contain only numbers
-    </div>
-    <div class="form-text text-danger" *ngIf="StuMobNum.errors?.['minlength'] && (StuMobNum.touched || StuMobNum.dirty)">
-         mobile number is too short
-    </div>
-    <div class="form-text text-danger" *ngIf="StuMobNum.errors?.['maxlength'] && (StuMobNum.touched || StuMobNum.dirty)">
-         mobile number is too long
-    </div>
+            *ngIf="StuMobNum.errors?.['required'] && (StuMobNum.touched || StuMobNum.dirty)">
+            Mobile number is Required
+        </div>
+        <div class="form-text text-danger"
+            *ngIf="StuMobNum.errors?.['email'] && (StuMobNum.touched || StuMobNum.dirty)">
+            Invalid mobile number should contain only numbers
+        </div>
+        <div class="form-text text-danger"
+            *ngIf="StuMobNum.errors?.['minlength'] && (StuMobNum.touched || StuMobNum.dirty)">
+            mobile number is too short
+        </div>
+        <div class="form-text text-danger"
+            *ngIf="StuMobNum.errors?.['maxlength'] && (StuMobNum.touched || StuMobNum.dirty)">
+            mobile number is too long
+        </div>
 
-    <!-- date of birth -->
-    
+        <!-- date of birth -->
+
         <label for="DOB">Date of Birth:</label>
         <input type="date" id="DOB" formControlName="DOB" name="DOB" required>
-
+        <!-- date of birth -->
         <label for="StuAddress">Address:</label>
         <input type="text" id="StuAddress" formControlName="StuAddress" name="StuAddress" required>
-
+        <div class="form-text text-danger"
+            *ngIf="StuAddress.errors?.['required'] && (StuAddress.touched || StuAddress.dirty)">
+            Address is Required
+        </div>
+        <!-- date of birth -->
         <label for="Password">Password:</label>
         <input type="password" id="Password" formControlName="Password" name="Password" required>
 
+        <!-- date of birth -->
         <label for="rpwd">Repeat Password:</label>
-        <input type="rpwd" id="rpwd" formControlName="rpwd" name="rpwd" required>
+        <input type="password" id="rpwd" formControlName="rpwd" name="rpwd" required>
 
         <!-- Add other form fields as needed -->
 
         <!-- <button type="submit">Submit</button> -->
         <div class="btn">
-            <button type="submit" mat-raised-button color="primary">Register</button>
+            <button [disabled]="form.form.invalid" type="submit" mat-raised-button color="primary">Register</button>
             <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
         </div>
     </form>

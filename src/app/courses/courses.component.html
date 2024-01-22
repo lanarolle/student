@@ -1,1 +1,22 @@
-<p>courses works!</p>
+<div class="courseregistration-form">
+    <h2 class="main">Courses Registration Form</h2>
+</div>
+<body>
+    <form  #form="ngForm" class="course-form" action="">
+        <label for="">Course Name</label>
+        <input type="text">
+
+
+        <label for="">Course Discription</label>
+        <input type="text">
+
+
+        <label for="">Course Credit</label>
+        <input type="text">
+
+        <div class="btn">
+            <button  type="submit" mat-raised-button color="primary">Submit</button>
+            <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
+        </div>
+    </form>
+</body>

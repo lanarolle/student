@@ -1,0 +1,41 @@
+.main{
+    text-align: center;
+    text-decoration-color: blue;
+  }
+  .course-form {
+    max-width: 500px;
+    margin: auto;
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .main{
+    text-align: center;
+    text-decoration-color: blue;
+  }
+  
+  /* button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  } */
+
+  .reset{
+    margin-left: 50px;
+  }
+  .btn{
+    text-align: center;
+    
+  }

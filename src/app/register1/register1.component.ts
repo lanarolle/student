@@ -2,23 +2,24 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../services/student.service';
 import * as bcrypt from 'bcryptjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register1',
   templateUrl: './register1.component.html',
   styleUrl: './register1.component.css'
 })
- export class Register1Component {
+export class Register1Component {
 
   pwdFocus = false;
   RepeatPass: string = "none";
   displayMsg: string = '';
   isAccountCreated: boolean = false;
   hide = true;
-  saltRounds =10;
+  saltRounds = 10;
   pass: string;
 
-  
+
   // student = {
   //   //  firstName: '',
   //   //  lastName: '',
@@ -32,13 +33,13 @@ import * as bcrypt from 'bcryptjs';
   //   // Password: '',
 
   // };
-  constructor(private authService: StudentService) { }
+  constructor(private authService: StudentService, private snackBar: MatSnackBar) { }
 
 
 
   //onSubmit() {
   //   //     // Implement your form submission logic here
-   //  console.log('Form submitted:', this.student);
+  //  console.log('Form submitted:', this.student);
   //   //     // You can send the form data to a backend server or perform other actions
   // }
   registerform = new FormGroup({
@@ -71,13 +72,13 @@ import * as bcrypt from 'bcryptjs';
   get Password() {
     return this.registerform.get('Password') as FormControl;
   }
-  get rpwd(){
+  get rpwd() {
     return this.registerform.get('rpwd') as FormControl;
   }
 
 
   registerSubmit() {
-    
+
     if (this.Password.value == this.rpwd.value) {
       this.RepeatPass = "none";
 
@@ -94,8 +95,9 @@ import * as bcrypt from 'bcryptjs';
 
 
       ]).subscribe(res => {
-        if (res == 'Success') {
-          this.displayMsg = 'Account Created Successfully';
+        if (res == 'Sucess') {
+         // this.displayMsg = 'Account Created Successfully';
+          this.openSnackBar('Account Created Successfully', 'success-snackbar');
           this.isAccountCreated = true;
         } else if (res == 'AlreadyExist') {
           this.displayMsg = 'Account Alredy Exict';
@@ -105,15 +107,21 @@ import * as bcrypt from 'bcryptjs';
           this.isAccountCreated = false;
         }
 
+
       })
     }
     else {
       this.RepeatPass = 'inline';
     }
   }
-
-
- }
+  openSnackBar(message: string, panelClass: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 4000, // Adjust duration as needed
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: [panelClass] // Position the snackbar at the top
+    });
+  }
 
 
 // import { Component } from '@angular/core';
@@ -137,4 +145,4 @@ import * as bcrypt from 'bcryptjs';
 //     console.log('Form submitted:', this.student);
 //     // You can send the form data to a backend server or perform other actions
 //   }
-// }
+}

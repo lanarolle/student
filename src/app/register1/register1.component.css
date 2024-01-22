@@ -1,6 +1,7 @@
 .registration-form {
     max-width: 500px;
     margin: auto;
+    font-weight: bold;
   }
   
   label {

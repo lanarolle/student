@@ -1,0 +1,54 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="StuRegId">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.StuRegId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="StuName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.StuName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="StuEmail">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.StuEmail}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="StuMobNum">
+    <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+    <td mat-cell *matCellDef="let element"> {{element.StuMobNum}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="DOB">
+    <th mat-header-cell *matHeaderCellDef> Date of birth </th>
+    <td mat-cell *matCellDef="let element"> {{element.DOB}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="StuAddress">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let element"> {{element.StuAddress}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Password">
+    <th mat-header-cell *matHeaderCellDef> Password </th>
+    <td mat-cell *matCellDef="let element"> {{element.Password}} </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+  
+  

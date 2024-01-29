@@ -17,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { CoursesComponent } from './courses/courses.component';
 import { Register1Component } from './register1/register1.component';
+import { ViewcoursesComponent } from './viewcourses/viewcourses.component';
+import { ViewSheduledComponent } from './viewsheduled/view-sheduled.component';
+//import { SheduledComponent} from './sheduled/sheduled.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,10 @@ import { Register1Component } from './register1/register1.component';
     ShowuserComponent,
     CoursesComponent,
     Register1Component,
+    ViewSheduledComponent,
+    ViewcoursesComponent,
+    ViewSheduledComponent,
+    //SheduledComponent
     
     
 
@@ -42,7 +49,8 @@ import { Register1Component } from './register1/register1.component';
     MatInputModule,
     HttpClientModule,
     MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
 
   ],
   providers: [],

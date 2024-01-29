@@ -1,8 +1,10 @@
 export class StudentDto {
-    id !: number;
-    name !: string;
-    email !: string;
-    mobile !: string;
-    address !: string;
+    stuRegId !: number;
+    stuName !: string;
+    stuEmail !: string;
+    stuMobNum !: string;
+    dOB !: string;
+    stuAddress !: string;
     password !: string;
+    
 }

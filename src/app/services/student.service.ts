@@ -12,9 +12,17 @@ export class StudentService {
 
   constructor(private http:HttpClient) { }
 
-  GetAllStudents():Observable<StudentDto[]>{
-    return this.http.get<StudentDto[]>(this.url);
+  // GetAllStudents(){
+  //   return this.http.get<StudentDto[]>(this.url);
+  // }
+
+  GetAllStudents(){
+    return this.http.get("https://localhost:7073/api/Student",{
+
+    });
   }
+
+
 
   // RegisterStudent(filters: StudentDto[]): Observable<any>{
   //   return this.http.post<any>(this.url, filters);

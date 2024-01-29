@@ -2,21 +2,35 @@
     <h2 class="main">Courses Registration Form</h2>
 </div>
 <body>
-    <form  #form="ngForm" class="course-form" action="">
-        <label for="">Course Name</label>
-        <input type="text">
 
+    <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'">
+        {{displayMsg}}
+    </p>
+
+
+    <form  #form="ngForm" class="course-form" action=""  [formGroup]="registercoursesform" (ngSubmit)="registercoursesSubmit()" >
+        <label for="">Course Name</label>
+        <input class="inp" type="text"  id="CourseName" formControlName="CourseName" name="CourseName" required >
+        <div class="form-text text-danger" *ngIf="CourseName.errors?.['required'] && (CourseName.touched || CourseName.dirty)">
+            Course Name is Required
+        </div>
 
         <label for="">Course Discription</label>
-        <input type="text">
-
+        <input class="inp" type="text"  id="CourseDescription" formControlName="CourseDescription" name="CourseDescription" required >
+        <div class="form-text text-danger" *ngIf="CourseDescription.errors?.['required'] && (CourseDescription.touched || CourseDescription.dirty)">
+            Course Description is Required
+        </div>
 
         <label for="">Course Credit</label>
-        <input type="text">
+        <input class="inp" type="text"  id="CourseCredit" formControlName="CourseCredit" name="CourseCredit" required >
+        <div class="form-text text-danger" *ngIf="CourseCredit.errors?.['required'] && (CourseCredit.touched || CourseCredit.dirty)">
+            Course Credit is Required
+        </div>
 
         <div class="btn">
-            <button  type="submit" mat-raised-button color="primary">Submit</button>
+            <button  type="submit" [disabled]="form.form.invalid" mat-raised-button color="primary">Submit</button>
             <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
         </div>
     </form>
 </body>
+``

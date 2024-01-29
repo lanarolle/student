@@ -21,5 +21,15 @@ export class HomeComponent {
   courseBtn() {
     this.router.navigate(['/courses'])
   }
+  sheduledBtn() {
+    this.router.navigate(['/sheduled'])
+  }
+  viewcoursesBtn(){
+    this.router.navigate(['/viewcourses'])
+  }
+  viewsheduledBtn(){
+    this.router.navigate(['/viewsheduled'])
+  }
+
 
 }

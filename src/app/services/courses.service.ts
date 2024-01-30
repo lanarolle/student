@@ -14,6 +14,9 @@ import { coursesDto } from '../Dto/coursesDto';
 
     url="https://localhost:7073/api/Courses";
 
+    //https://localhost:7073/api/Sheduled
+
+
     constructor(private http:HttpClient){}
 
     GetAllcourses():Observable<coursesDto[]>{

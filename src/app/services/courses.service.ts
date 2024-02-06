@@ -2,16 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, filter } from 'rxjs';
 import { coursesDto } from '../Dto/coursesDto';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
   })
 
   export class coursesService{
+    private product$ = new BehaviorSubject<any>({});
+    selectedProduct$ = this.product$.asObservable();
     // registercoursesSubmit(arg0: string[]) {
     //   throw new Error('Method not implemented.');
     // }
-
+    setProduct(product: any) {debugger;
+      this.product$.next(product);
+    }
     url="https://localhost:7073/api/Courses";
 
     //https://localhost:7073/api/Sheduled

@@ -4,11 +4,12 @@ import { coursesService } from '../services/courses.service';
 import * as bcrypt from 'bcryptjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {ActivatedRoute} from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrl: './courses.component.css'
+  styleUrl: './courses.component.css',
 })
 export class CoursesComponent implements OnInit{
 
@@ -16,35 +17,36 @@ export class CoursesComponent implements OnInit{
   isAccountCreated: boolean = false;
   displayMsg: string = '';
   //activateRouter: any;
+   decodedObject: any;
 
-  constructor(private authService: coursesService, private activateRouter: ActivatedRoute ) { }
+  constructor(private authService: coursesService, private activateRouter: ActivatedRoute,private detect: ChangeDetectorRef
+    ,private coursesService: coursesService ) { }
 
 
   registercoursesform = new FormGroup({
-
-   
-    CourseName: new FormControl('', [Validators.required]),
-    CourseDescription: new FormControl('', [Validators.required]),
-    CourseCredit: new FormControl('', [Validators.required])
+    courseName: new FormControl('', [Validators.required]),
+    courseDescription: new FormControl('', [Validators.required]),
+    courseCredit: new FormControl('', [Validators.required])
 
   });
+
   get CourseName() {
-    return this.registercoursesform.get('CourseName') as FormControl;
+    return this.registercoursesform.get('courseName') as FormControl;
   }
   get CourseDescription() {
-    return this.registercoursesform.get('CourseDescription') as FormControl;
+    return this.registercoursesform.get('courseDescription') as FormControl;
   }
   get CourseCredit() {
-    return this.registercoursesform.get('CourseCredit') as FormControl;
+    return this.registercoursesform.get('courseCredit') as FormControl;
   }
 
   registercoursesSubmit(){
 
 
     this.authService.registercoursesSubmit([
-      this.registercoursesform.value.CourseName,
-      this.registercoursesform.value.CourseDescription,
-      this.registercoursesform.value.CourseCredit,
+      this.registercoursesform.value.courseName,
+      this.registercoursesform.value.courseDescription,
+      this.registercoursesform.value.courseCredit,
       this.pass
     ]).subscribe(res => {
       if (res === 'Sucess') {
@@ -66,22 +68,31 @@ export class CoursesComponent implements OnInit{
   }
 
   ngOnInit(){
-
+debugger;
+  // this.coursesService.setProduct();
+ // this.registercoursesform.setValue(this.coursesService.selectedProduct$);
+ this.coursesService.selectedProduct$.subscribe(val =>{
+  this.registercoursesform.setValue(val);
+ })
     this.activateRouter.queryParams.subscribe((params) =>   {
+      console.log("hi");
 
       const CourseName = params['data'];
       if(CourseName){
-      const decodedObject = JSON.parse(decodeURIComponent(CourseName));
-      //console.log(decodedObject);
-      this.registercoursesform=decodedObject;
-      console.log(this.registercoursesform.value.CourseName);
+       this.decodedObject = JSON.parse(CourseName);
+       //console.log(decodedObject);
+       this.update();
 
 
       }
       
-    })
+    }
+    )
+  }
 
-
+  update(){
+    console.log(this.decodedObject.courseCredit);
+    this.registercoursesform.value.courseCredit = this.decodedObject.courseCredit;
   }
 
 

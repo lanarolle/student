@@ -14,12 +14,12 @@ export class UserDashbordComponent {
 
   }
 
-  regBtn() {
-    this.router.navigate(['/register1']);
-  }
-  logBtn() {
-    this.router.navigate(['/login']);
-  }
+  // regBtn() {
+  //   this.router.navigate(['/register1']);
+  // }
+  // logBtn() {
+  //   this.router.navigate(['/login']);
+  // }
   userEnrollemtBtn() {
     this.router.navigate(['/user_enrollment']);
   }

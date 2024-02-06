@@ -17,19 +17,26 @@ import { Router } from '@angular/router';
 })
 export class ViewcoursesComponent {
   coursesList: any;
+  selectedProduct: any;
   //router: any;
 
 constructor(private router: Router,private coursesService: coursesService) {
+}
 
 
-
-  }
 
   courseBtn(coursesList : any) {
+debugger;
+    this.coursesService.selectedProduct$.subscribe((value) => {
+      this.selectedProduct = value;
+    });
+    this.coursesService.setProduct(coursesList);
    // console.log(coursesList);
-    const encodedObject = encodeURIComponent(JSON.stringify(coursesList));
+   // const encodedObject = encodeURIComponent(JSON.stringify(coursesList));
+//    const queryParams = { data: JSON.stringify(coursesList) };    
 //console.log(encodedObject);
-    this.router.navigate(['/courses', { queryParams: { data: encodedObject }}]);
+//debugger;
+    this.router.navigate(['/courses']);
   };
 
   
@@ -89,7 +96,5 @@ constructor(private router: Router,private coursesService: coursesService) {
   }
 
 }
-function courseBtn() {
-  throw new Error('Function not implemented.');
-}
+
 

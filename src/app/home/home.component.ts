@@ -9,12 +9,12 @@ export class HomeComponent {
   constructor(private router: Router) {
 
   }
-  regBtn() {
-    this.router.navigate(['/register1']);
-  }
-  logBtn() {
-    this.router.navigate(['/login']);
-  }
+  // regBtn() {
+  //   this.router.navigate(['/register1']);
+  // }
+  // logBtn() {
+  //   this.router.navigate(['/login']);
+  // }
   showBtn() {
     this.router.navigate(['/Showuser']);
   }

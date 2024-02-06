@@ -7,6 +7,9 @@ import { StudentDto } from '../Dto/StudentDto';
   providedIn: 'root'
 })
 export class StudentService {
+  // loginStudent(arg0: string[]) {
+  //   throw new Error('Method not implemented.');
+  // }
 
   url="https://localhost:7073/api/Student";
 
@@ -42,5 +45,17 @@ export class StudentService {
       responseType:'text',
     });
   }
+
+
+  loginStudent(loginInfo: Array<string>){
+    return this.http.post(this.url+'/loginUser',{
+      email: loginInfo[0],
+      Password: loginInfo[1]
+    }, {
+      responseType:'text',
+    } );
+  }
+
+  
 
 }

@@ -10,7 +10,7 @@
 
     <form  #form="ngForm" class="course-form" action=""  [formGroup]="registercoursesform" (ngSubmit)="registercoursesSubmit()" >
         <label for="">Course Name</label>
-        <input class="inp" type="text"  id="CourseName" formControlName="CourseName" name="CourseName" required >
+        <input  class="inp" type="text"  id="CourseName" formControlName="CourseName"  name="CourseName" value={{registercoursesform.value.CourseName}} required  >
         <div class="form-text text-danger" *ngIf="CourseName.errors?.['required'] && (CourseName.touched || CourseName.dirty)">
             Course Name is Required
         </div>
@@ -27,10 +27,11 @@
             Course Credit is Required
         </div>
 
+        
+
         <div class="btn">
             <button  type="submit" [disabled]="form.form.invalid" mat-raised-button color="primary">Submit</button>
             <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
         </div>
     </form>
 </body>
-``

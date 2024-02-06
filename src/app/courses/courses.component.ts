@@ -1,21 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { coursesService } from '../services/courses.service';
 import * as bcrypt from 'bcryptjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css'
 })
-export class CoursesComponent {
+export class CoursesComponent implements OnInit{
 
   pass: string;
   isAccountCreated: boolean = false;
   displayMsg: string = '';
+  //activateRouter: any;
 
-  constructor(private authService: coursesService,) { }
+  constructor(private authService: coursesService, private activateRouter: ActivatedRoute ) { }
 
 
   registercoursesform = new FormGroup({
@@ -45,12 +47,13 @@ export class CoursesComponent {
       this.registercoursesform.value.CourseCredit,
       this.pass
     ]).subscribe(res => {
-      if (res == 'Sucess') {
+      if (res === 'Sucess') {
        // this.displayMsg = 'Account Created Successfully';
         //this.openSnackBar('Account Created Successfully', 'success-snackbar');
         this.isAccountCreated = true;
-      } else if (res == 'AlreadyExist') {
-        this.displayMsg = 'Account Alredy Exict';
+        this.registercoursesform.reset();
+      } else if (res == 'exists') {
+        this.displayMsg = 'Course Alredy Exict';
         this.isAccountCreated = false;
       } else {
         this.displayMsg = 'Sucess';
@@ -59,6 +62,25 @@ export class CoursesComponent {
 
 
     })
+
+  }
+
+  ngOnInit(){
+
+    this.activateRouter.queryParams.subscribe((params) =>   {
+
+      const CourseName = params['data'];
+      if(CourseName){
+      const decodedObject = JSON.parse(decodeURIComponent(CourseName));
+      //console.log(decodedObject);
+      this.registercoursesform=decodedObject;
+      console.log(this.registercoursesform.value.CourseName);
+
+
+      }
+      
+    })
+
 
   }
 
@@ -73,3 +95,4 @@ export class CoursesComponent {
 
 
 }
+

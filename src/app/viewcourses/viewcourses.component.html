@@ -1,1 +1,57 @@
-<p>viewcourses works!</p>
+<!-- <p>viewcourses works!</p> -->
+
+<div class="demo-button-container">
+    
+  </div>
+  
+  <table mat-table [dataSource]="coursesList" class="mat-elevation-z8 demo-table">
+    
+    <!-- <ng-container matColumnDef="courseId">
+      <th mat-header-cell *matHeaderCellDef>Student Name</th>
+      <td mat-cell *matCellDef="let coursesList">{{coursesList.courseId}}</td>
+    </ng-container> -->
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="courseName">
+      <th mat-header-cell *matHeaderCellDef>Course Name</th>
+      <td mat-cell *matCellDef="let coursesList">{{coursesList.courseName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="courseDescription">
+        <th mat-header-cell *matHeaderCellDef>Course Description</th>
+        <td mat-cell *matCellDef="let coursesList">{{coursesList.courseDescription}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="courseCredit">
+        <th mat-header-cell *matHeaderCellDef>Course Credit</th>
+        <td mat-cell *matCellDef="let coursesList">{{coursesList.courseCredit}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="removeData">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let coursesList"><button   (click)="removeData(coursesList.courseName)" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="addData">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+           <br>
+           <td mat-cell *matCellDef="let coursesList"><button (click)="courseBtn(coursesList)"  mat-icon-button>
+          <mat-icon> edit_attributes</mat-icon>
+
+
+
+        </button></td>
+      </ng-container>
+
+
+
+
+
+      
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

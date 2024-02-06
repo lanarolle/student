@@ -16,12 +16,24 @@ import { coursesDto } from '../Dto/coursesDto';
 
     //https://localhost:7073/api/Sheduled
 
+    GetAllcourses(){
+      return this.http.get("https://localhost:7073/api/Courses",{
+  
+      });
+    }
+
+    Deletecourses(courseName : string){debugger;
+      return  this.http.delete("https://localhost:7073/api/Courses/"+courseName
+       );
+    }
+    
+
 
     constructor(private http:HttpClient){}
 
-    GetAllcourses():Observable<coursesDto[]>{
-        return this.http.get<coursesDto[]>(this.url);
-    }
+    // GetAllcourses():Observable<coursesDto[]>{
+    //     return this.http.get<coursesDto[]>(this.url);
+    // }
 
     registercoursesSubmit(courses: Array<string>){
         console.log (courses);

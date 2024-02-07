@@ -1,8 +1,23 @@
-<body>
-  <!-- partial:index.partial.html -->
-  <div id="bg"></div>
 
+
+
+
+
+<body>
+
+ 
+  <!-- partial:index.partial.html -->
+  <div id="bg"><div class="background-video">
+    <video autoplay muted loop>
+        <source src='assets/12.mp4' type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  </div></div>
+
+  
   <form #Form="ngForm" [formGroup]="loginform" (ngSubmit)="loginSubmit()" class="space-y-6">
+
+    
 
 
     <div class="form-field">

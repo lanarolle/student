@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, filter } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { StudentDto } from '../Dto/StudentDto';
 
 @Injectable({
@@ -23,6 +24,11 @@ export class StudentService {
     return this.http.get("https://localhost:7073/api/Student",{
 
     });
+  }
+
+  Deletestudent(courseName : number){
+    return  this.http.delete("https://localhost:7073/api/Student/"+courseName
+     );
   }
 
 

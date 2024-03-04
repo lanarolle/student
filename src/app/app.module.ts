@@ -24,6 +24,7 @@ import { UserDashbordComponent } from './user-dashbord/user-dashbord.component';
 import { UserEnrollmentComponent } from './user-enrollment/user-enrollment.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import {MatIconModule} from '@angular/material/icon';
+import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 //import { SheduledComponent} from './sheduled/sheduled.component';
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatIconModule} from '@angular/material/icon';
     ViewSheduledComponent,
     UserDashbordComponent,
     UserEnrollmentComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    AddScheduleComponent
     //SheduledComponent
     
     

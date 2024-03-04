@@ -21,8 +21,8 @@ export class HomeComponent {
   courseBtn() {
     this.router.navigate(['/courses'])
   }
-  sheduledBtn() {
-    this.router.navigate(['/sheduled'])
+  addsheduledBtn() {
+    this.router.navigate(['/addsheduled'])
   }
   viewcoursesBtn(){
     this.router.navigate(['/viewcourses'])

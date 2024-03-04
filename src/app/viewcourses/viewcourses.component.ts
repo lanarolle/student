@@ -18,6 +18,8 @@ import { Router } from '@angular/router';
 export class ViewcoursesComponent {
   coursesList: any;
   selectedProduct: any;
+  isupdate: boolean = true;
+
   //router: any;
 
 constructor(private router: Router,private coursesService: coursesService) {
@@ -26,11 +28,15 @@ constructor(private router: Router,private coursesService: coursesService) {
 
 
   courseBtn(coursesList : any) {
-debugger;
-    this.coursesService.selectedProduct$.subscribe((value) => {
-      this.selectedProduct = value;
-    });
-    this.coursesService.setProduct(coursesList);
+
+    //this.coursesService.selectedProduct$.subscribe((value) => {
+      //this.selectedProduct = value;
+    //});
+    //this.isupdate = true;
+    this.coursesService.setProduct(coursesList,this.isupdate);
+
+    //this.isupdate = false;
+    
    // console.log(coursesList);
    // const encodedObject = encodeURIComponent(JSON.stringify(coursesList));
 //    const queryParams = { data: JSON.stringify(coursesList) };    
@@ -52,7 +58,7 @@ debugger;
   //   // throw new Error('Method not implemented.');
   // }
   removeData(CourseName:string) {
-    this.coursesService.Deletecourses(CourseName).subscribe(td => {debugger;
+    this.coursesService.Deletecourses(CourseName).subscribe(td => {
       this.coursesList = td;
       
      console.log(this.coursesList);
@@ -60,7 +66,7 @@ debugger;
      
 
     });
-    window.location.reload();
+     window.location.reload();
     console.log(this.coursesList);
   }
 

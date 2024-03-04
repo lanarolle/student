@@ -12,9 +12,11 @@ import { ViewSheduledComponent } from './viewsheduled/view-sheduled.component';
 import { UserDashbordComponent } from './user-dashbord/user-dashbord.component';
 import { UserEnrollmentComponent } from './user-enrollment/user-enrollment.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { AddScheduleComponent } from './add-schedule/add-schedule.component';
+
 
 const routes: Routes = [
- { path:"register1",
+ {path:"register1",
   component:Register1Component
 },
 {
@@ -53,6 +55,10 @@ const routes: Routes = [
 {
   path:"user-enrollment",
   component:UserEnrollmentComponent
+},
+{
+  path:"add-schedule",
+  component:AddScheduleComponent
 },
 {
   path:"Admin-dashbord",

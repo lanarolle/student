@@ -37,11 +37,20 @@ export class ShowuserComponent {
   addData() {
     throw new Error('Method not implemented.');
   }
-  removeData() {
-    throw new Error('Method not implemented.');
+  removeData(CourseName:number) {
+    console.log(CourseName);
+    this.studentService.Deletestudent(CourseName).subscribe(td => {
+      this.studentList = td;
+      
+     
+
+     
+
+    });
+    window.location.reload();
   }
 
-  displayedColumns: string[] = [/*'StuRegId',*/'StuName', 'StuEmail', 'StuMobNum', 'DOB', 'StuAddress', 'Password'];
+  displayedColumns: string[] = [/*'StuRegId',*/'StuName', 'StuEmail', 'StuMobNum', 'DOB', 'StuAddress','removeData'];
   dataSource = new MatTableDataSource<StudentDto>;
   //studentList: StudentDto[] = [];
 

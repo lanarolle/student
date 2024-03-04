@@ -44,28 +44,18 @@ export class LoginComponent {
 
         this.user = JSON.parse(res);
         console.log(this.user.userRole);
-       if(this.user.userRole == false) {
+        if (this.user.userRole == false) {
           this.router.navigateByUrl('/user-dashbord');
         }
 
 
-        if(this.user.userRole == true) {
+        if (this.user.userRole == true) {
           this.router.navigateByUrl('/Admin-dashbord');
         }
-
-
-
-
-
       }
 
     })
   }
-
-
-
-
-
 }
 
 

@@ -10,12 +10,23 @@ import { BehaviorSubject } from 'rxjs';
 
   export class coursesService{
     private product$ = new BehaviorSubject<any>({});
+    private updatevar$ = new BehaviorSubject<boolean>(false);
+
     selectedProduct$ = this.product$.asObservable();
+    selectedupdatevar$ = this.updatevar$.asObservable();
+
     // registercoursesSubmit(arg0: string[]) {
     //   throw new Error('Method not implemented.');
     // }
-    setProduct(product: any) {debugger;
+    setProduct(product: any,  isupdate: boolean ) {;
       this.product$.next(product);
+      this.updatevar$.next(isupdate);
+
+
+    }
+
+    setIsUpdate(isupdate:boolean){
+      this.updatevar$.next(isupdate);
     }
     url="https://localhost:7073/api/Courses";
 
@@ -27,7 +38,7 @@ import { BehaviorSubject } from 'rxjs';
       });
     }
 
-    Deletecourses(courseName : string){debugger;
+    Deletecourses(courseName : string){
       return  this.http.delete("https://localhost:7073/api/Courses/"+courseName
        );
     }
@@ -43,6 +54,21 @@ import { BehaviorSubject } from 'rxjs';
     registercoursesSubmit(courses: Array<string>){
         console.log (courses);
         return this.http.post(this.url,{
+          
+            CourseName: courses[0],
+            CourseDescription: courses[1],
+            CourseCredit: courses[2],
+          
+          
+    
+        }, {
+          responseType:'text',
+        });
+      }
+
+      update(courses: Array<string>){
+        console.log (courses);
+        return this.http.put(this.url,{
           
             CourseName: courses[0],
             CourseDescription: courses[1],

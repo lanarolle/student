@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,11 @@ import { CoursesComponent } from './courses/courses.component';
 import { Register1Component } from './register1/register1.component';
 import { ViewcoursesComponent } from './viewcourses/viewcourses.component';
 import { ViewSheduledComponent } from './viewsheduled/view-sheduled.component';
+import { UserDashbordComponent } from './user-dashbord/user-dashbord.component';
+import { UserEnrollmentComponent } from './user-enrollment/user-enrollment.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+import {MatIconModule} from '@angular/material/icon';
+import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 //import { SheduledComponent} from './sheduled/sheduled.component';
 
 @NgModule({
@@ -34,6 +40,10 @@ import { ViewSheduledComponent } from './viewsheduled/view-sheduled.component';
     ViewSheduledComponent,
     ViewcoursesComponent,
     ViewSheduledComponent,
+    UserDashbordComponent,
+    UserEnrollmentComponent,
+    LandingpageComponent,
+    AddScheduleComponent
     //SheduledComponent
     
     
@@ -50,6 +60,10 @@ import { ViewSheduledComponent } from './viewsheduled/view-sheduled.component';
     HttpClientModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatIconModule,
+    RouterModule.forRoot([
+      // Define your routes here
+    ]),
     
 
   ],

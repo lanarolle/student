@@ -1,0 +1,74 @@
+<div class="container">
+    <mat-toolbar color="primary" >
+        <span>Student Registration System</span>
+        <button mat-raised-button (click)="homeBtn()" > Back</button>
+    </mat-toolbar>
+  </div>
+  
+
+<div class="courseregistration-form">
+    <h2 class="main">Courses Sheduled Form</h2>
+</div>
+
+<body>
+    <p class="text-center fs-3" [ngClass]="isSheduledCreated ? 'text-success pb-1' : 'text-danger pb-1'">
+        {{displayMsg}}
+    </p>
+
+
+    <!-- <form  #form ="ngForm"  class="course-form" action=""  [formGroup]="registersheduledform" (ngSubmit)="registercoursesSubmit()" > -->
+    <form #form="ngForm" class="course-form" action="" [formGroup]="registersheduledform" (ngSubmit)="registersheduledSubmit()">
+        <label for="">Course Name</label>
+        <input class="inp" type="text" id="courseName" formControlName="courseName" name="courseName" required>
+        <div class="form-text text-danger"
+            *ngIf="courseName.errors?.['required'] && (courseName.touched || courseName.dirty)">
+            Course Name is Required
+        </div>
+
+        <!-- <label for="">Course Discription</label>
+        <input class="inp" type="text" id="courseDescription" formControlName="courseDescription"
+            name="courseDescription" required>
+        <div class="form-text text-danger"
+            *ngIf="CourseDescription.errors?.['required'] && (CourseDescription.touched || CourseDescription.dirty)">
+            Course Description is Required
+        </div> -->
+
+        
+
+        <label for="">Start Time</label>
+        <input class="inp" type="time" id="startTime" formControlName="startTime" name="startTime" required>
+        <div class="form-text text-danger"
+            *ngIf="startTime.errors?.['required'] && (startTime.touched || startTime.dirty)">
+            Start Time is Required
+        </div>
+
+        <label for="">End Time</label>
+        <input class="inp" type="time" id="endTime" formControlName="endTime" name="endTime" required>
+        <div class="form-text text-danger"
+            *ngIf="endTime.errors?.['required'] && (endTime.touched || endTime.dirty)">
+            End Time is Required
+        </div>
+
+        <label for="">Day</label>
+        <input class="inp" type="date" id="day" formControlName="day" name="endTime" required>
+        <div class="form-text text-danger"
+            *ngIf="day.errors?.['required'] && (day.touched || day.dirty)">
+            End Time is Required
+        </div>
+
+        <!-- <label for="">Course Credit</label>
+        <input class="inp" type="text" id="courseCredit" formControlName="courseCredit" name="courseCredit" required>
+        <div class="form-text text-danger"
+            *ngIf="CourseCredit.errors?.['required'] && (CourseCredit.touched || CourseCredit.dirty)">
+            Course Credit is Required
+        </div> -->
+        
+
+
+            
+        <div class="btn">
+            <button type="submit" [disabled]="form.form.invalid" mat-raised-button color="primary">Submit</button>
+            <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
+        </div>
+    </form>
+</body>

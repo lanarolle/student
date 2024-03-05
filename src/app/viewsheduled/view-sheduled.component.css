@@ -9,4 +9,28 @@
   .demo-button + .demo-button {
     margin-left: 8px;
   }
+
+  .container{
+    width: 100%;
+    /* margin-left: 100%;
+    margin-right: auto; */
+}
+.container button{
+    margin-left: auto;
+}
+
+.btn button {
+  /* Your styling goes here */
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+}
   

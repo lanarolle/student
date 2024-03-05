@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StudentService } from '../services/student.service';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { StudentDto } from '../Dto/StudentDto';
+import { Router } from '@angular/router';
 
 
 // export interface Studentdata {
@@ -37,16 +38,29 @@ export class ShowuserComponent {
   addData() {
     throw new Error('Method not implemented.');
   }
-  removeData() {
-    throw new Error('Method not implemented.');
+  removeData(CourseName:number) {
+    console.log(CourseName);
+    this.studentService.Deletestudent(CourseName).subscribe(td => {
+      this.studentList = td;
+      
+     
+
+     
+
+    });
+    window.location.reload();
   }
 
-  displayedColumns: string[] = [/*'StuRegId',*/'StuName', 'StuEmail', 'StuMobNum', 'DOB', 'StuAddress', 'Password'];
+  displayedColumns: string[] = [/*'StuRegId',*/'StuName', 'StuEmail', 'StuMobNum', 'DOB', 'StuAddress','removeData'];
   dataSource = new MatTableDataSource<StudentDto>;
   //studentList: StudentDto[] = [];
 
-  constructor(private studentService: StudentService) {
+  constructor(private studentService: StudentService,private router: Router) {
 
+  }
+
+  homeBtn(){
+    this.router.navigate(['Admin-dashbord'])
   }
 
   ngOnInit() {

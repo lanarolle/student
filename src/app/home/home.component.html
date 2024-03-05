@@ -1,15 +1,44 @@
-<div class="container">
-    <div class="oper">
-        <br><br>
-        
-        <button mat-raised-button color="primary" (click)="logBtn()" >Login</button><br>
-        <button mat-raised-button color="primary" (click)="regBtn()" >Register</button><br>
-        <button mat-raised-button color="primary" (click)="courseBtn()" >Courses</button><br>
-        <button mat-raised-button color="primary" (click)="sheduledBtn()" >Sheduled</button><br>
-        <button mat-raised-button color="primary" (click)="showBtn()" >View User</button><br>
-        <button mat-raised-button color="primary" (click)="viewcoursesBtn()" >View Courses</button><br>
-        <button mat-raised-button color="primary" (click)="viewsheduledBtn()" >View Sheduled</button>
-        
-        
+<!-- <div class="background-video">
+    <video autoplay loop>
+        <source src="1.mp4" type="video/mp4">
+    </video>
+
+    <div class="button-container">
+
+
+        <button mat-raised-button color="primary" (click)="logBtn()">Login</button>
+        <button mat-raised-button color="primary" (click)="regBtn()">Register</button>
+        <button mat-raised-button color="primary" (click)="courseBtn()">Courses</button>
+        <button mat-raised-button color="primary" (click)="sheduledBtn()">Sheduled</button>
+        <button mat-raised-button color="primary" (click)="showBtn()">View User</button>
+        <button mat-raised-button color="primary" (click)="viewcoursesBtn()">View Courses</button>
+        <button mat-raised-button color="primary" (click)="viewsheduledBtn()">View Sheduled</button>
+
     </div>
+
+</div> -->
+
+<div class="container">
+    <mat-toolbar color="primary" >
+        <span>Student Registration System</span>
+        <button mat-raised-button (click)="homeBtn()" > Back</button>
+    </mat-toolbar>
+  </div>
+
+<div class="background-video">
+    <video autoplay muted loop>
+        <source src='assets/12.mp4' type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<div class="button-container">
+    <!-- Your buttons go here -->
+    <!-- <button mat-raised-button color="primary" (click)="logBtn()">Login</button>
+        <button mat-raised-button color="primary" (click)="regBtn()">Register</button> -->
+    <button mat-raised-button color="primary" (click)="courseBtn()">Courses</button>
+    <button mat-raised-button color="primary" (click)="addsheduledBtn()">Sheduled</button>
+    <button mat-raised-button color="primary" (click)="showBtn()">View User</button>
+    <button mat-raised-button color="primary" (click)="viewcoursesBtn()">View Courses</button>
+    <button mat-raised-button color="primary" (click)="viewsheduledBtn()">View Sheduled</button>
 </div>

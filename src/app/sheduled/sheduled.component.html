@@ -1,54 +1,155 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<!-- <div class="courseregistration-form">
+    <h2 class="main">Courses Registration Form</h2>
+</div>
+<body>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+   
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="StuRegId">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.StuRegId}} </td>
-  </ng-container>
+    <form  #form="ngForm" class="course-form" action=""  [formGroup]="registercoursesform" (ngSubmit)="registercoursesSubmit()" >
+        <label for="">Course Name</label>
+        <input  class="inp" type="text"  id="courseName" formControlName="courseName"  name="courseName"  required  >
+        <div class="form-text text-danger" *ngIf="CourseName.errors?.['required'] && (CourseName.touched || CourseName.dirty)">
+            Course Name is Required
+        </div>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="StuName">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.StuName}} </td>
-  </ng-container>
+        <label for="">Course Discription</label>
+        <input class="inp" type="text"  id="courseDescription" formControlName="courseDescription" name="courseDescription" required >
+        <div class="form-text text-danger" *ngIf="CourseDescription.errors?.['required'] && (CourseDescription.touched || CourseDescription.dirty)">
+            Course Description is Required
+        </div>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="StuEmail">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
-    <td mat-cell *matCellDef="let element"> {{element.StuEmail}} </td>
-  </ng-container>
+        <label for="">Course Credit</label>
+        <input class="inp" type="text"  id="courseCredit" formControlName="courseCredit" name="courseCredit"  required >
+        <div class="form-text text-danger" *ngIf="CourseCredit.errors?.['required'] && (CourseCredit.touched || CourseCredit.dirty)">
+            Course Credit is Required
+        </div>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="StuMobNum">
-    <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
-    <td mat-cell *matCellDef="let element"> {{element.StuMobNum}} </td>
-  </ng-container>
+        
 
-  <ng-container matColumnDef="DOB">
-    <th mat-header-cell *matHeaderCellDef> Date of birth </th>
-    <td mat-cell *matCellDef="let element"> {{element.DOB}} </td>
-  </ng-container>
+        <div class="btn">
+            <button  type="submit" [disabled]="form.form.invalid" mat-raised-button color="primary">Submit</button>
+            <button type="reset" class="reset" mat-raised-button color="accent">Reset</button>
+        </div>
+    </form>
+</body> -->
 
-  
-  <ng-container matColumnDef="StuAddress">
-    <th mat-header-cell *matHeaderCellDef> Address </th>
-    <td mat-cell *matCellDef="let element"> {{element.StuAddress}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Password">
-    <th mat-header-cell *matHeaderCellDef> Password </th>
-    <td mat-cell *matCellDef="let element"> {{element.Password}} </td>
-  </ng-container>
-
-
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-
-  
-  
+ 
+<!-- <form  class="bg-black"
+       #form ="ngForm">
+    <div class="space-y-12 boarder">
+      <div class="border-b border-gray-900/10 pb-12 " >
+        <h2 class="profile text-white mt-2 flex justify-center">Course Sceduling</h2>
+        <p class="mt-3 text-gray-400 flex justify-center" >All the schedules will be displayed on each user. </p>
+        <div class="mt-10 grid  gap-x-6 gap-y-2 sm:grid-cols-2">  
+          <div class="sm:col-span-1 sm:col-start-1">
+            <label for="city"
+                   class="block text-sm font-medium leading-6 text-white">Course Code
+            </label>
+            <div class="mt-2 form-group">
+              <select #courseCode ="ngModel"
+                      type="number"
+                      name="courseCode"
+                      id="courseCode"
+                      autocomplete="address-level2"
+                      class="city"
+                      [(ngModel)]="model.courseCode"
+                      [class.is-invalid] ="courseCode.invalid && courseCode.touched"
+                      required>
+                <option  *ngFor="let
+                         courseCode of courseData | async"
+                         [value]="courseCode">{{ courseCode }}
+                </option>
+              </select>
+              <small class="text-danger"
+                   [class.d-none]="courseCode.dirty || courseCode.untouched">Please select the course code!
+            </small>              
+            </div>
+          </div>
+            <div *ngFor="let input of inputFields" >
+            <div class="sm:col-span-1 ">
+                <label for="city"
+                       class="block text-sm font-medium leading-6 text-white">Day
+                </label>
+                <div class="mt-2">
+                  <select #day="ngModel"
+                          type="string"
+                          name="day"
+                          id="day"
+                          autocomplete="address-level2"
+                          class="city"
+                          [class.is-invalid] ="day.invalid && day.touched"
+                          [(ngModel)]="model.day"
+                          required>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                  </select>
+            <small class="text-danger"
+                [class.d-none]="day.dirty || day.untouched">Please select the day!
+            </small>
+                </div>
+              </div>
+            <div class="sm:col-span-1">
+              <label for="region"
+                     class="block text-sm font-medium leading-6 text-white">Start Time
+              </label>
+              <div class="mt-2 form-group" >
+               
+                <input #startTime = "ngModel"
+                       type="time"
+                       name="startTime"
+                       id="startTime"
+                       autocomplete="address-level1"
+                       class="region"
+                       [class.is-invalid] ="startTime.invalid && startTime.touched"
+                       [(ngModel)]="model.startTime"
+                       required>
+                 <small style="color: red" class="text-danger"  
+                        [class.d-none]="startTime.untouched || startTime.valid">Start time is required!
+                 </small>
+              </div>
+            </div>
+            <div class="sm:col-span-1">
+              <label for="postal-code"
+                     class="block text-sm font-medium leading-6 text-white">End Time
+              </label>
+              <div class="mt-2 form-group">
+                <input type="time"
+                       #endTime="ngModel"
+                       name="endTime"
+                       id="endTime"
+                       autocomplete="courseName"
+                       class="postalCode"
+                       [(ngModel)]="model.endTime"
+                       [class.is-invalid] ="endTime.invalid && endTime.touched"
+                       required="">
+                 <small style="color: red" class="text-danger"  
+                        [class.d-none]="endTime.untouched || endTime.valid">End time is required!
+                 </small>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    <div class="mt-6  flex items-center justify-center gap-x-6 py-4">
+      <button type="button"
+              (click) ="backToDashboard()"
+              class=" mb-4  text-sm font-semibold leading-6 text-white">Cancel
+      </button>
+    <button *ngIf="scheduleServices.someIntVariable === 0"
+             type="submit" class="mb-4 buttonSave"  
+             (click) ="onFormSubmit()"
+             [disabled]="form.form.invalid">Save
+    </button>
+    <button *ngIf="scheduleServices.someIntVariable === 1"
+             type="submit" class="mb-4 buttonSave"
+             (click) ="onFormUpdate()"
+             [disabled]="form.form.invalid"
+             >Update
+    </button>
+    </div>
+  </form> -->
+ 

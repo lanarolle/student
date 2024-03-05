@@ -9,20 +9,25 @@ export class HomeComponent {
   constructor(private router: Router) {
 
   }
-  regBtn() {
-    this.router.navigate(['/register1']);
+
+  homeBtn(){
+    this.router.navigate(['login'])
   }
-  logBtn() {
-    this.router.navigate(['/login']);
-  }
+
+  // regBtn() {
+  //   this.router.navigate(['/register1']);
+  // }
+  // logBtn() {
+  //   this.router.navigate(['/login']);
+  // }
   showBtn() {
     this.router.navigate(['/Showuser']);
   }
   courseBtn() {
     this.router.navigate(['/courses'])
   }
-  sheduledBtn() {
-    this.router.navigate(['/sheduled'])
+  addsheduledBtn() {
+    this.router.navigate(['/add-schedule'])
   }
   viewcoursesBtn(){
     this.router.navigate(['/viewcourses'])

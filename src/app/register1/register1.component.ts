@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../services/student.service';
 import * as bcrypt from 'bcryptjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register1',
@@ -33,9 +34,11 @@ export class Register1Component {
   //   // Password: '',
 
   // };
-  constructor(private authService: StudentService, private snackBar: MatSnackBar) { }
+  constructor(private authService: StudentService, private snackBar: MatSnackBar,private router: Router) { }
 
-
+  homeBtn(){
+    this.router.navigate(['login'])
+  }
 
   //onSubmit() {
   //   //     // Implement your form submission logic here

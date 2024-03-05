@@ -9,9 +9,14 @@ import { Register1Component } from './register1/register1.component';
 import { SheduledComponent } from './sheduled/sheduled.component';
 import { ViewcoursesComponent } from './viewcourses/viewcourses.component';
 import { ViewSheduledComponent } from './viewsheduled/view-sheduled.component';
+import { UserDashbordComponent } from './user-dashbord/user-dashbord.component';
+import { UserEnrollmentComponent } from './user-enrollment/user-enrollment.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+import { AddScheduleComponent } from './add-schedule/add-schedule.component';
+
 
 const routes: Routes = [
- { path:"register1",
+ {path:"register1",
   component:Register1Component
 },
 {
@@ -29,7 +34,7 @@ const routes: Routes = [
 },
 {
   path:"",
-  component:HomeComponent
+  component:LandingpageComponent
 },
 {
   path:"sheduled",
@@ -42,7 +47,26 @@ const routes: Routes = [
 {
   path:"viewsheduled",
   component:ViewSheduledComponent
+},
+{
+  path:"user-dashbord",
+  component:UserDashbordComponent
+},
+{
+  path:"user-enrollment",
+  component:UserEnrollmentComponent
+},
+{
+  path:"add-schedule",
+  component:AddScheduleComponent
+},
+{
+  path:"Admin-dashbord",
+  component:HomeComponent
 }
+
+
+
 ];
 
 @NgModule({

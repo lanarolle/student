@@ -1,3 +1,11 @@
+
+<div class="container">
+    <mat-toolbar color="primary" >
+        <span>Student Registration System</span>
+        <button mat-raised-button (click)="homeBtn()" > Back</button>
+    </mat-toolbar>
+  </div>
+
 <div class="courseregistration-form">
     <h2 class="main">Courses Registration Form</h2>
 </div>
@@ -10,22 +18,24 @@
 
     <form  #form="ngForm" class="course-form" action=""  [formGroup]="registercoursesform" (ngSubmit)="registercoursesSubmit()" >
         <label for="">Course Name</label>
-        <input class="inp" type="text"  id="CourseName" formControlName="CourseName" name="CourseName" required >
+        <input  class="inp" type="text"  id="courseName" formControlName="courseName"  name="courseName"  required  >
         <div class="form-text text-danger" *ngIf="CourseName.errors?.['required'] && (CourseName.touched || CourseName.dirty)">
             Course Name is Required
         </div>
 
         <label for="">Course Discription</label>
-        <input class="inp" type="text"  id="CourseDescription" formControlName="CourseDescription" name="CourseDescription" required >
+        <input class="inp" type="text"  id="courseDescription" formControlName="courseDescription" name="courseDescription" required >
         <div class="form-text text-danger" *ngIf="CourseDescription.errors?.['required'] && (CourseDescription.touched || CourseDescription.dirty)">
             Course Description is Required
         </div>
 
         <label for="">Course Credit</label>
-        <input class="inp" type="text"  id="CourseCredit" formControlName="CourseCredit" name="CourseCredit" required >
+        <input class="inp" type="text"  id="courseCredit" formControlName="courseCredit" name="courseCredit"  required >
         <div class="form-text text-danger" *ngIf="CourseCredit.errors?.['required'] && (CourseCredit.touched || CourseCredit.dirty)">
             Course Credit is Required
         </div>
+
+        
 
         <div class="btn">
             <button  type="submit" [disabled]="form.form.invalid" mat-raised-button color="primary">Submit</button>
@@ -33,4 +43,3 @@
         </div>
     </form>
 </body>
-``

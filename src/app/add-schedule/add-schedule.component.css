@@ -1,0 +1,61 @@
+
+.main{
+    text-align: center;
+    text-decoration-color: blue;
+  }
+  .course-form {
+    max-width: 500px;
+    margin: auto;
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .main{
+    text-align: center;
+    text-decoration-color: blue;
+  }
+  
+  /* button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  } */
+
+  .reset{
+    margin-left: 50px;
+  }
+  .btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    
+  }
+  .inp {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 100px rgba(8, 36, 253, 0.1);
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+  }
+
+  .container{
+    width: 100%;
+    /* margin-left: 100%;
+    margin-right: auto; */
+}
+.container button{
+    margin-left: auto;
+}

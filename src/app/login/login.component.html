@@ -1,23 +1,58 @@
 
+<div class="container">
+  <mat-toolbar color="primary" >
+      <span>Student Registration System</span>
+      <button mat-raised-button (click)="homeBtn()" > Back</button>
+  </mat-toolbar>
+</div>
+
+
 
 <body>
-<!-- partial:index.partial.html -->
-<div id="bg"></div>
 
-<form>
-  <div class="form-field">
-    <input type="email" placeholder="Email / Username" required/>
-  </div>
+ 
+  <!-- partial:index.partial.html -->
+  <div id="bg"><div class="background-video">
+    <video autoplay muted loop>
+        <source src='assets/12.mp4' type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  </div></div>
+
   
-  <div class="form-field">
-    <input type="password" placeholder="Password" required/>                        
-   </div>
-  
-  <div class="form-field">
-    <button class="btn" type="submit">Log in</button>
-  </div>
-</form>
-<!-- partial -->
-  
+  <form #Form="ngForm" [formGroup]="loginform" (ngSubmit)="loginSubmit()" class="space-y-6">
+
+    
+
+
+    <div class="form-field">
+      
+      <input type="email" id="useremail"  placeholder="useremail" formControlName="useremail" name="useremail" required />
+      <div class="form-text text-danger"
+            *ngIf="useremail.errors?.['required'] && (useremail.touched || useremail.dirty)">
+            Email is Required
+        </div>
+        <div class="form-text text-danger" *ngIf="useremail.errors?.['email'] && (useremail.touched || useremail.dirty)">
+          Invalid Email
+      </div> 
+    </div>
+    
+                     
+
+    <div class="form-field">
+      <input placeholder="Password" type="password" id="Password" formControlName="Password" name="Password" required />
+    </div>
+
+    <div class="form-field">
+      <button  class="btn" type="submit"  mat-raised-button color="primary">LogIn</button>
+
+      <!-- <button class="btn" type="submit">Log in</button> -->
+    </div>
+
+    <br>
+    <p class="palign">Do You haven't any acount plz <a href="\register1">Register</a> </p>
+
+  </form>
+
+
 </body>
-

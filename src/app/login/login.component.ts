@@ -16,6 +16,10 @@ export class LoginComponent {
 
   ) { }
 
+  homeBtn(){
+    this.router.navigate([''])
+  }
+
 
 
   loginform = new FormGroup({

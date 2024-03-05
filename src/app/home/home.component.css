@@ -84,3 +84,11 @@ video {
     margin: 5px;
     /* Add margin between buttons if needed */
 }
+.container{
+    width: 100%;
+    /* margin-left: 100%;
+    margin-right: auto; */
+}
+.container button{
+    margin-left: auto;
+}

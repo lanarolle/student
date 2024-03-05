@@ -23,6 +23,10 @@ export class CoursesComponent implements OnInit {
   constructor(private authService: coursesService, private activateRouter: ActivatedRoute, private detect: ChangeDetectorRef
     , private coursesService: coursesService, private router: Router) { }
 
+    homeBtn(){
+      this.router.navigate(['Admin-dashbord'])
+    }
+
 
   registercoursesform = new FormGroup({
     courseName: new FormControl('', [Validators.required]),

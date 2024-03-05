@@ -21,6 +21,10 @@ export class AddScheduleComponent {
   constructor( private authService: sheduledService,private activateRouter: ActivatedRoute, private detect: ChangeDetectorRef
     , private router: Router) { }
 
+    homeBtn(){
+      this.router.navigate(['Admin-dashbord'])
+    }
+
 
     registersheduledform = new FormGroup({
     courseName: new FormControl('', [Validators.required]),

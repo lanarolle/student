@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StudentService } from '../services/student.service';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { StudentDto } from '../Dto/StudentDto';
+import { Router } from '@angular/router';
 
 
 // export interface Studentdata {
@@ -54,8 +55,12 @@ export class ShowuserComponent {
   dataSource = new MatTableDataSource<StudentDto>;
   //studentList: StudentDto[] = [];
 
-  constructor(private studentService: StudentService) {
+  constructor(private studentService: StudentService,private router: Router) {
 
+  }
+
+  homeBtn(){
+    this.router.navigate(['Admin-dashbord'])
   }
 
   ngOnInit() {

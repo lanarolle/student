@@ -9,6 +9,11 @@ export class HomeComponent {
   constructor(private router: Router) {
 
   }
+
+  homeBtn(){
+    this.router.navigate(['login'])
+  }
+
   // regBtn() {
   //   this.router.navigate(['/register1']);
   // }
@@ -22,7 +27,7 @@ export class HomeComponent {
     this.router.navigate(['/courses'])
   }
   addsheduledBtn() {
-    this.router.navigate(['/addsheduled'])
+    this.router.navigate(['/add-schedule'])
   }
   viewcoursesBtn(){
     this.router.navigate(['/viewcourses'])

@@ -25,6 +25,10 @@ export class ViewSheduledComponent {
 
   }
 
+  homeBtn(){
+    this.router.navigate(['Admin-dashbord'])
+  }
+
   // addData(CourseName: string) {
   //   throw new Error('Method not implemented.');
   // }

@@ -24,6 +24,9 @@ export class ViewcoursesComponent {
 
 constructor(private router: Router,private coursesService: coursesService) {
 }
+homeBtn(){
+  this.router.navigate(['Admin-dashbord'])
+}
 
 
 
